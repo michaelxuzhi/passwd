@@ -1,0 +1,101 @@
+{
+    "data": [
+        {
+            "index": "1",
+            "title": "Navigation One",
+            "icon": "location",
+            "subGroup": [
+                {
+                    "title": "Group One",
+                    "icon": "location",
+                    "subItem": [
+                        {
+                            "index": "1-1",
+                            "title": "Sub Item One",
+                            "icon": ""
+                        },
+                        {
+                            "index": "1-2",
+                            "title": "Sub Item Two",
+                            "icon": ""
+                        }
+                    ]
+                },
+                {
+                    "title": "Group Two",
+                    "icon": "location",
+                    "subItem": [
+                        {
+                            "index": "1-3",
+                            "title": "Sub Item Three",
+                            "icon": ""
+                        },
+                        {
+                            "index": "1-4",
+                            "title": "Sub Item Four",
+                            "icon": "",
+                            "subItem": [
+                                {
+                                    "index": "1-4-1",
+                                    "title": "Sub Item Four-1",
+                                    "icon": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": "2",
+            "title": "Navigation Two",
+            "icon": "location",
+            "subGroup": [
+                {
+                    "title": "Group Three",
+                    "icon": "location",
+                    "subItem": [
+                        {
+                            "index": "2-1",
+                            "title": "Sub Item Five",
+                            "icon": ""
+                        },
+                        {
+                            "index": "2-2",
+                            "title": "Sub Item Six",
+                            "icon": ""
+                        }
+                    ]
+                },
+                {
+                    "title": "Group Four",
+                    "icon": "location",
+                    "subItem": [
+                        {
+                            "index": "2-3",
+                            "title": "Sub Item Seven",
+                            "icon": ""
+                        },
+                        {
+                            "index": "2-4",
+                            "title": "Sub Item Eight",
+                            "icon": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "index": "3",
+            "title": "Navigation Three",
+            "icon": "document",
+            "subGroup": []
+        },
+        {
+            "index": "4",
+            "title": "Navigation Four",
+            "icon": "setting",
+            "subGroup": []
+        }
+    ]
+}

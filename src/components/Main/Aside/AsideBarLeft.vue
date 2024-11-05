@@ -1,42 +1,79 @@
 <template>
     <div class="aside-bar-left">
         <el-menu>
-            <el-sub-menu index="1">
-                <template #title>
-                    <el-icon><location /></el-icon>
-                    <span>Navigator One</span>
+            <template v-for="(item, index) in asideData.data" :key="index" :index="index">
+                <template v-if="item.subGroup.length === 0">
+                    <el-menu-item>
+                        <el-icon><component :is="item.icon"></component></el-icon>
+                        <span>{{ item.title }}</span>
+                    </el-menu-item>
                 </template>
-                <el-menu-item-group title="Group One">
-                    <el-menu-item index="1-1">item one</el-menu-item>
-                    <el-menu-item index="1-2">item two</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="Group Two">
-                    <el-menu-item index="1-3">item three</el-menu-item>
-                </el-menu-item-group>
-                <el-sub-menu index="1-4">
-                    <template #title>item four</template>
-                    <el-menu-item index="1-4-1">item one</el-menu-item>
-                </el-sub-menu>
-            </el-sub-menu>
-            <el-menu-item index="2">
-                <el-icon><memo /></el-icon>
-                <span>Navigator Two</span>
-            </el-menu-item>
-            <el-menu-item index="3" disabled>
-                <el-icon><document /></el-icon>
-                <span>Navigator Three</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-                <el-icon><setting /></el-icon>
-                <span>Navigator Four</span>
-            </el-menu-item>
+                <template v-else>
+                    <el-sub-menu :index="item.index">
+                        <template #title>
+                            <el-icon><component :is="item.icon"></component></el-icon>
+                            <span>{{ item.title }}</span>
+                        </template>
+                        <el-menu-item-group
+                            v-for="(item1, index) in item.subGroup"
+                            :key="index"
+                            :title="item1.title"
+                        >
+                            <el-menu-item
+                                v-for="(subItem, index) in item1.subItem"
+                                :key="index"
+                                :index="subItem.index"
+                            >
+                                <el-icon
+                                    ><component :is="subItem.icon"></component
+                                ></el-icon>
+                                <span>{{ subItem.title }}</span>
+                            </el-menu-item>
+                        </el-menu-item-group>
+                    </el-sub-menu>
+                </template>
+            </template>
         </el-menu>
     </div>
 </template>
 
 <script>
+import AsideData from '../../../staticData/AsideData.json';
 export default {
     name: 'AsideBarLeft',
+    data() {
+        return {
+            asideData: AsideData,
+        };
+    },
+    mounted() {
+        console.log(this.asideData);
+        // for (let i = 0; i < this.asideData.length; i++) {
+        //     console.log(this.asideData[i].index);
+        // }
+    },
+    computed: {
+        asideDataWithSubGroup() {
+            const result = [];
+            for (let i = 0; i < this.asideData.data.length; i++) {
+                const item = this.asideData.data[i];
+                if (item.subGroup.length > 0) {
+                    result.push(item);
+                }
+            }
+            return result;
+        },
+        asideDataWithoutSubGroup() {
+            const result = [];
+            for (let i = 0; i < this.asideData.data.length; i++) {
+                const item = this.asideData.data[i];
+                if (item.subGroup.length === 0) {
+                    result.push(item);
+                }
+            }
+            return result;
+        },
+    },
 };
 </script>
 

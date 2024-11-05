@@ -65,6 +65,7 @@
                             "
                             active-text="亮"
                             inactive-text="暗"
+                            @change="topSwitchTheme"
                         >
                         </el-switch>
                     </div>
@@ -76,7 +77,10 @@
 
 <script>
 import { Search, Check, Close } from '@element-plus/icons-vue';
+import { useDark, useToggle } from '@vueuse/core';
 
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 export default {
     name: 'TopBar',
     data() {
@@ -91,6 +95,11 @@ export default {
             circleUrl:
                 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
         };
+    },
+    methods: {
+        topSwitchTheme() {
+            toggleDark();
+        },
     },
 };
 </script>

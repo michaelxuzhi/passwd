@@ -12,7 +12,7 @@
                 <el-main>
                     <BodyContent></BodyContent>
                 </el-main>
-                <el-footer>
+                <el-footer class="footer">
                     <FooterBar></FooterBar>
                 </el-footer>
             </el-container>
@@ -45,5 +45,10 @@ export default {
 .container-page {
     width: 100%;
     height: 100%;
+}
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 </style>
