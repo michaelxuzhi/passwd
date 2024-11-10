@@ -1,6 +1,14 @@
 <template>
+    <div style="display: flex; justify-content: center; align-items: center">
+        <el-button
+            text
+            circle
+            :icon="isCollapse ? ArrowLeft : ArrowRight"
+            @click="isCollapse = !isCollapse"
+        ></el-button>
+    </div>
     <div class="aside-bar-left">
-        <el-menu>
+        <el-menu :collapse="isCollapse" class="temp-menu-class">
             <template v-for="(item, index) in asideData.data" :key="index" :index="index">
                 <template v-if="item.subGroup.length === 0">
                     <el-menu-item>
@@ -38,12 +46,16 @@
 </template>
 
 <script>
+import { ArrowLeft, ArrowRight } from '@element-plus/icons-vue';
 import AsideData from '../../../staticData/AsideData.json';
 export default {
     name: 'AsideBarLeft',
     data() {
         return {
             asideData: AsideData,
+            isCollapse: true,
+            ArrowLeft: ArrowLeft,
+            ArrowRight: ArrowRight,
         };
     },
     mounted() {
@@ -52,39 +64,18 @@ export default {
         //     console.log(this.asideData[i].index);
         // }
     },
-    computed: {
-        asideDataWithSubGroup() {
-            const result = [];
-            for (let i = 0; i < this.asideData.data.length; i++) {
-                const item = this.asideData.data[i];
-                if (item.subGroup.length > 0) {
-                    result.push(item);
-                }
-            }
-            return result;
-        },
-        asideDataWithoutSubGroup() {
-            const result = [];
-            for (let i = 0; i < this.asideData.data.length; i++) {
-                const item = this.asideData.data[i];
-                if (item.subGroup.length === 0) {
-                    result.push(item);
-                }
-            }
-            return result;
-        },
-    },
 };
 </script>
 
 <style scoped>
 .aside-bar-left {
-    /* width: 100%; */
     height: 100%;
     /* background-color: #ca3232; */
 
     display: flex;
-    justify-content: center;
     /* align-items: center; */
+}
+.temp-menu-class:not(.el-menu--collapse) {
+    width: 200px;
 }
 </style>

@@ -1,0 +1,80 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Home",
+            "url": "",
+            "type": "dropdowngroup",
+            "subGroup": [
+                {
+                    "id": 100,
+                    "title": "Sub-Home",
+                    "icon": "location",
+                    "url": "/sub-home"
+                },
+                {
+                    "id": 101,
+                    "title": "Sub-About",
+                    "icon": "location",
+                    "url": "/sub-about"
+                },
+                {
+                    "id": 102,
+                    "title": "Sub-Contact",
+                    "icon": "location",
+                    "url": "/sub-contact"
+                },
+                {
+                    "id": 103,
+                    "title": "Sub-Services",
+                    "icon": "location",
+                    "url": "/sub-services"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "About",
+            "url": "",
+            "type": "dropdowngroup",
+            "subGroup": [
+                {
+                    "id": 200,
+                    "title": "Sub-About-1",
+                    "icon": "location",
+                    "url": "/sub-about-1"
+                },
+                {
+                    "id": 201,
+                    "title": "Sub-About-2",
+                    "icon": "location",
+                    "url": "/sub-about-2"
+                },
+                {
+                    "id": 202,
+                    "title": "Sub-About-3",
+                    "icon": "location",
+                    "url": "/sub-about-3"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Contact",
+            "url": "/contact",
+            "type": "link"
+        },
+        {
+            "id": 4,
+            "title": "Services",
+            "url": "/services",
+            "type": "link"
+        },
+        {
+            "id": 5,
+            "title": "Login",
+            "url": "/login",
+            "type": "avatar"
+        }
+    ]
+}

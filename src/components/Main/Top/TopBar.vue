@@ -41,14 +41,41 @@
             </el-col>
             <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
                 <div class="grid-content">
-                    <div class="top_bar_func">
-                        <div class="top-bar-title">文本1</div>
-                        <div class="top-bar-title">文本2</div>
-                        <div class="top-bar-title">文本3</div>
-                        <div class="top-bar-title">文本4</div>
-                        <el-avatar :size="30" :src="circleUrl"></el-avatar>
-                        <el-avatar :size="30" :src="circleUrl"></el-avatar>
-                        <el-avatar :size="30" :src="circleUrl"></el-avatar>
+                    <div class="top-bar-func">
+                        <template
+                            v-for="(item, index) in navData.data"
+                            :key="index"
+                            :index="index"
+                        >
+                            <template v-if="item.type === 'dropdowngroup'">
+                                <el-dropdown class="top-bar-dropdown-item">
+                                    <span class="el-dropdown-link"
+                                        >{{ item.title }}
+                                        <el-icon v-if="item.subGroup.length > 0"
+                                            ><arrow-down
+                                        /></el-icon>
+                                    </span>
+                                    <template #dropdown v-if="item.subGroup.length > 0">
+                                        <el-dropdown-menu>
+                                            <el-dropdown-item
+                                                v-for="subItem in item.subGroup"
+                                                :key="subItem.id"
+                                                :index="subItem.id"
+                                                :icon="subItem.icon"
+                                            >
+                                                {{ subItem.title }}
+                                            </el-dropdown-item>
+                                        </el-dropdown-menu>
+                                    </template>
+                                </el-dropdown>
+                            </template>
+                            <template v-if="item.type === 'link'">
+                                <div class="top-bar-func-link">{{ item.title }}</div>
+                            </template>
+                            <template v-if="item.type === 'avatar'">
+                                <el-avatar :size="30" :src="circleUrl"></el-avatar>
+                            </template>
+                        </template>
                     </div>
                 </div>
             </el-col>
@@ -76,11 +103,21 @@
 </template>
 
 <script>
-import { Search, Check, Close } from '@element-plus/icons-vue';
+import {
+    Plus,
+    CircleCheck,
+    CirclePlusFilled,
+    CirclePlus,
+    Search,
+    Check,
+    Close,
+} from '@element-plus/icons-vue';
 import { useDark, useToggle } from '@vueuse/core';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
+import NavData from '../../../staticData/NavData.json';
 export default {
     name: 'TopBar',
     data() {
@@ -89,9 +126,14 @@ export default {
             top_select: '',
             top_search_size: 'large',
             top_switch_value: false,
+            navData: [],
             Search: Search,
             Check: Check,
             Close: Close,
+            Plus: Plus,
+            CirclePlusFilled: CirclePlusFilled,
+            CirclePlus: CirclePlus,
+            CircleCheck: CircleCheck,
             circleUrl:
                 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
         };
@@ -100,6 +142,10 @@ export default {
         topSwitchTheme() {
             toggleDark();
         },
+    },
+    created() {},
+    mounted() {
+        this.navData = NavData;
     },
 };
 </script>
@@ -137,20 +183,27 @@ export default {
 .input-with-select {
     border-radius: 4px;
 }
-.top_bar_func {
+.top-bar-func {
     height: 50px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: auto;
 }
-.top_bar_func > div {
-    margin-right: 15px;
+.top-bar-func > div {
+    margin-right: 25px;
 }
-.top_bar_func > .el-avatar {
+.top-bar-func > .el-avatar {
     margin-left: 15px;
+}
+.top-bar-func-link {
+    font-size: 14px;
+    font-weight: bold;
 }
 .top-bar-switch {
     margin-left: auto;
+}
+.top-bar-dropdown-item {
+    cursor: pointer;
 }
 </style>

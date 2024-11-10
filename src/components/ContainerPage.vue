@@ -5,7 +5,7 @@
         </el-header>
         <el-container>
             <!-- <LoginPage></LoginPage> -->
-            <el-aside width="200px">
+            <el-aside width="collapse">
                 <AsideBarLeft></AsideBarLeft>
             </el-aside>
             <el-container>
