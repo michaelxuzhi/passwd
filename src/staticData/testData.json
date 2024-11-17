@@ -1,0 +1,29 @@
+[
+    {
+        "value": "qa",
+        "label": "QA",
+        "children": [
+            { "value": "lily", "label": "Lily" },
+            { "value": "john", "label": "John" },
+            { "value": "jane", "label": "Jane" }
+        ]
+    },
+    {
+        "value": "programmer",
+        "label": "程序",
+        "children": [
+            { "value": "bob", "label": "Bob" },
+            { "value": "alice", "label": "Alice" },
+            { "value": "charlie", "label": "Charlie" }
+        ]
+    },
+    {
+        "value": "planner",
+        "label": "策划",
+        "children": [
+            { "value": "mike", "label": "Mike" },
+            { "value": "sara", "label": "Sara" },
+            { "value": "tom", "label": "Tom" }
+        ]
+    }
+]
