@@ -1,29 +1,38 @@
 [
     {
-        "value": "qa",
-        "label": "QA",
-        "children": [
-            { "value": "lily", "label": "Lily" },
-            { "value": "john", "label": "John" },
-            { "value": "jane", "label": "Jane" }
-        ]
+        "id": "1",
+        "user_name": "小明",
+        "content": "今天天气不错，心情也很好。",
+        "pics": [],
+        "qa_name": "小红",
+        "pro_name": "小花",
+        "time": "2021-08-01 10:00:00",
+        "record_status": 1,
+        "record_type": "bug",
+        "tag": "无"
     },
     {
-        "value": "programmer",
-        "label": "程序",
-        "children": [
-            { "value": "bob", "label": "Bob" },
-            { "value": "alice", "label": "Alice" },
-            { "value": "charlie", "label": "Charlie" }
-        ]
+        "id": "2",
+        "user_name": "小红",
+        "content": "今天天气不错，心情也很好。",
+        "pics": [],
+        "qa_name": "小明",
+        "pro_name": "小花",
+        "time": "2021-08-01 10:00:00",
+        "record_status": 1,
+        "record_type": "bug",
+        "tag": "无"
     },
     {
-        "value": "planner",
-        "label": "策划",
-        "children": [
-            { "value": "mike", "label": "Mike" },
-            { "value": "sara", "label": "Sara" },
-            { "value": "tom", "label": "Tom" }
-        ]
+        "id": "3",
+        "user_name": "小花",
+        "content": "今天天气不错，心情也很好。",
+        "pics": [],
+        "qa_name": "小明",
+        "pro_name": "小红",
+        "time": "2021-08-01 10:00:00",
+        "record_status": 1,
+        "record_type": "bug",
+        "tag": "无"
     }
 ]
